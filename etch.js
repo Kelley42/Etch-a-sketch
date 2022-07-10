@@ -25,8 +25,7 @@ function createColumns(numSquares) {
 }*/
 
 
-function createGrid() {
-    const grid = document.querySelector("#grid");
+function createGrid(numSquares) {
     let size = grid.clientWidth / numSquares;
     // for (let i = 0; i < numSquares; i++) {
     //     const row = document.createElement("div");
@@ -48,9 +47,15 @@ function createGrid() {
 
         }
 }
+
+// Changes size of grid
+function changeGrid() {
+    grid.innerHTML = ""
+    createGrid(slider.value)
+}
+
 // Color squares by clicking or dragging over
 function colorSquares() {
-    
     for (let i = 0; i < square.length; i++) {
         squareColor = "red"
         square[i].addEventListener("click", colorMe)
@@ -87,10 +92,14 @@ function clearSquares() {
     }
 }
 
-//const numSquares = prompt("How many squares per side?: ")
-const numSquares = 10;
+
+const grid = document.querySelector("#grid");
+const numSquares = 10; //default
 //document.documentElement.style.setProperty("--columns-row", numSquares)
-createGrid();
+createGrid(numSquares);
+
+let slider = document.querySelector("#square-slider");
+slider.addEventListener("mouseup", changeGrid)
 
 let squareColor = "white";
 const square = document.getElementsByClassName("square");
@@ -104,5 +113,3 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
-const grid = document.querySelector("#grid");
-grid.onmouseover = () => mouseDown
