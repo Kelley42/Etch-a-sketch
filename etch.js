@@ -79,9 +79,13 @@ function eraseSquares() {
     }
 }
 
-// function clearSquares() {
-
-// }
+// Clear grid by making all squares white
+function clearSquares() {
+    for (let i = 0; i < square.length; i++) {
+        squareColor = "white"
+        square[i].style.backgroundColor = squareColor
+    }
+}
 
 //const numSquares = prompt("How many squares per side?: ")
 const numSquares = 10;
@@ -92,7 +96,7 @@ let squareColor = "white";
 const square = document.getElementsByClassName("square");
 document.querySelector("#color").addEventListener("click", colorSquares);
 document.querySelector("#eraser").addEventListener("click", eraseSquares);
-// document.querySelector("#clear").addEventListener("click", clearSquares);
+document.querySelector("#clear").addEventListener("click", clearSquares);
 
 
 
