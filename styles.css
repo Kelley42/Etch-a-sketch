@@ -95,6 +95,17 @@ main {
 #square-slider {
     width: 220px;
     height: 12px;
+    appearance: none;
+    height: 2px;
+    background:gray;
+}
+
+#square-slider::-webkit-slider-thumb {
+    background:red;
+}
+
+#square-slider::-webkit-slider-thumb:hover {
+    background:black;
 }
 
 button {
