@@ -48,31 +48,36 @@ function createGrid() {
 
         }
 }
-
+// Color squares by clicking or dragging over
 function colorSquares() {
-    console.log("clicked")
-    const square = document.getElementsByClassName("square")
+    
     for (let i = 0; i < square.length; i++) {
+        squareColor = "red"
         square[i].addEventListener("click", colorMe)
-        square[i].addEventListener("mousedown", colorMe)
         square[i].addEventListener("mouseover", dragColorMe)
     }
 }
 
+// Color squares
 function colorMe(e) {
-    console.log("hi")
-    e.target.style.backgroundColor = "red"
+    e.target.style.backgroundColor = squareColor
 }
 
+// Will only color while mouseover if mouse already down
 function dragColorMe(e) {
     if(mouseDown) {
-        console.log("hiiii")
-        e.target.style.backgroundColor = "red"
+        e.target.style.backgroundColor = squareColor
     }
 }
-// function eraseSquares() {
-    
-// }
+
+// Erase squares by changing color to white
+function eraseSquares() {
+    for (let i = 0; i < square.length; i++) {
+        squareColor = "white"
+        square[i].addEventListener("click", colorMe)
+        square[i].addEventListener("mouseover", dragColorMe)
+    }
+}
 
 // function clearSquares() {
 
@@ -83,9 +88,13 @@ const numSquares = 10;
 //document.documentElement.style.setProperty("--columns-row", numSquares)
 createGrid();
 
+let squareColor = "white";
+const square = document.getElementsByClassName("square");
 document.querySelector("#color").addEventListener("click", colorSquares);
-// document.querySelector("eraser").addEventListener("click", eraseSquares());
-// document.querySelector("clear").addEventListener("click", clearSquares());
+document.querySelector("#eraser").addEventListener("click", eraseSquares);
+// document.querySelector("#clear").addEventListener("click", clearSquares);
+
+
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
