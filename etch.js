@@ -54,10 +54,20 @@ function changeGrid() {
     createGrid(slider.value)
 }
 
+// Change R value of color
+function changeColor(e) {
+    let rvalue = rSlider.value
+    let gvalue = gSlider.value
+    let bvalue = bSlider.value
+    let newColor = `rgb(${rvalue}, ${gvalue}, ${bvalue})`
+    colorExampleSquare.style.backgroundColor = newColor;
+    colorSquares(newColor)
+}
+
 // Color squares by clicking or dragging over
-function colorSquares() {
+function colorSquares(newColor) {
+    squareColor = newColor
     for (let i = 0; i < square.length; i++) {
-        squareColor = "red"
         square[i].addEventListener("click", colorMe)
         square[i].addEventListener("mouseover", dragColorMe)
     }
@@ -98,8 +108,17 @@ const numSquares = 10; //default
 //document.documentElement.style.setProperty("--columns-row", numSquares)
 createGrid(numSquares);
 
+let colorExampleSquare = document.querySelector("#color-box");
+
+let rSlider = document.querySelector("#R-slider");
+rSlider.addEventListener("mouseup", changeColor);
+let gSlider = document.querySelector("#G-slider");
+gSlider.addEventListener("mouseup", changeColor);
+let bSlider = document.querySelector("#B-slider");
+bSlider.addEventListener("mouseup", changeColor);
+
 let slider = document.querySelector("#square-slider");
-slider.addEventListener("mouseup", changeGrid)
+slider.addEventListener("mouseup", changeGrid);
 
 let squareColor = "white";
 const square = document.getElementsByClassName("square");

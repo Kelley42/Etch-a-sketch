@@ -15,6 +15,16 @@
     <main>
         <div class="small-box" id="left-side">
             <button class="btn" id="color">Color</button>
+            <div id="color-box"></div>
+            <div id="slider-batch">
+                <dl>
+                    <dt>R: <input type="range" min="0" max="255" value="25" class="colorslider" id="R-slider" oninput="RrangeValue.innerText = this.value, changeColor()"><span id="RrangeValue">25</span></dt>
+                    <dt>G: <input type="range" min="0" max="255" value="25" class="colorslider" id="G-slider" oninput="GrangeValue.innerText = this.value, changeColor()"><span id="GrangeValue">25</span></dt>
+                    <dt>B: <input type="range" min="0" max="255" value="200" class="colorslider" id="B-slider" oninput="BrangeValue.innerText = this.value, changeColor()"><span id="BrangeValue">200</span></dt>
+                </dl>
+
+                
+            </div>
             <button class="btn" id="grayscale">Grayscale</button>
             <button class="btn" id="eraser">Eraser</button>
             <button class="btn" id="clear">Clear Grid</button>
