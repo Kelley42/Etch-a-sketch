@@ -54,12 +54,13 @@ function changeGrid() {
     createGrid(slider.value)
 }
 
-// Change R value of color
+// Change RGBA value of color
 function changeColor(e) {
     let rvalue = rSlider.value
     let gvalue = gSlider.value
     let bvalue = bSlider.value
-    let newColor = `rgb(${rvalue}, ${gvalue}, ${bvalue})`
+    let avalue = aSlider.value
+    let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
     colorExampleSquare.style.backgroundColor = newColor;
     colorSquares(newColor)
 }
@@ -102,32 +103,67 @@ function clearSquares() {
     }
 }
 
+// Change squares border
+function changeBorder() {
+    for (let i = 0; i < square.length; i++) {
+        if (document.getElementById("border-off").checked) {
+            square[i].style.border = "0";
+        }
+        else {
+            square[i].style.border = "1px solid black";
+        }
+    }
+}
 
+// Can click on squares immediately to change color
 const grid = document.querySelector("#grid");
+grid.addEventListener("mousedown", changeColor);
+
+// Create grid
 const numSquares = 10; //default
-//document.documentElement.style.setProperty("--columns-row", numSquares)
 createGrid(numSquares);
 
+
+//document.documentElement.style.setProperty("--columns-row", numSquares)
+
+
+// Color example square
 let colorExampleSquare = document.querySelector("#color-box");
 
+// Sliders to change color (RGBA values)
 let rSlider = document.querySelector("#R-slider");
 rSlider.addEventListener("mouseup", changeColor);
 let gSlider = document.querySelector("#G-slider");
 gSlider.addEventListener("mouseup", changeColor);
 let bSlider = document.querySelector("#B-slider");
 bSlider.addEventListener("mouseup", changeColor);
+let aSlider = document.querySelector("#A-slider");
+aSlider.addEventListener("mouseup", changeColor);
 
+// Slider for grid size
 let slider = document.querySelector("#square-slider");
 slider.addEventListener("mouseup", changeGrid);
 
+// Set squares and their initial color
 let squareColor = "white";
 const square = document.getElementsByClassName("square");
-document.querySelector("#color").addEventListener("click", colorSquares);
+
+
+//document.querySelector("#color").addEventListener("click", colorSquares);
+
+
+// Buttons to erase and clear grid
 document.querySelector("#eraser").addEventListener("click", eraseSquares);
 document.querySelector("#clear").addEventListener("click", clearSquares);
 
+// Radio buttons for square borders
+const radioButtons = document.querySelectorAll("input[name='border-on-off']");
 
+//let radioButtons = document.querySelector("radio-buttons").addEventListener("click", changeBorder);
+let borderOn = document.querySelector("#border-on").addEventListener("click", changeBorder);
+let borderOff = document.querySelector("#border-off").addEventListener("click", changeBorder);
 
+// Setting mouseup and mousedown
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);

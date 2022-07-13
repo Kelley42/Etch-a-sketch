@@ -65,6 +65,20 @@ main {
     align-items: center;
 }
 
+#color-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: dashed green;
+    width: 200px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 18px;
+}
+
 #color-box {
     width: 100px;
     height: 100px;
@@ -97,10 +111,7 @@ main {
     border: dashed purple;
     width: 250px;
     height: 100px;
-}
-
-#slider-box h1 {
-    font-size: 18px;;
+    margin-bottom: 60px;
 }
 
 #square-slider {
@@ -122,4 +133,12 @@ button {
     width: 120px;
     padding: 10px;
     margin: 10px;
+}
+
+#square-border-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: dashed pink;
 }

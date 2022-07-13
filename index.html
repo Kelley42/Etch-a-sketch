@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="etch.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <title>Etch=A-Sketch</title>
 </head>
 <body>
@@ -14,29 +15,39 @@
     </header>
     <main>
         <div class="small-box" id="left-side">
-            <button class="btn" id="color">Color</button>
-            <div id="color-box"></div>
-            <div id="slider-batch">
-                <dl>
-                    <dt>R: <input type="range" min="0" max="255" value="25" class="colorslider" id="R-slider" oninput="RrangeValue.innerText = this.value, changeColor()"><span id="RrangeValue">25</span></dt>
-                    <dt>G: <input type="range" min="0" max="255" value="25" class="colorslider" id="G-slider" oninput="GrangeValue.innerText = this.value, changeColor()"><span id="GrangeValue">25</span></dt>
-                    <dt>B: <input type="range" min="0" max="255" value="200" class="colorslider" id="B-slider" oninput="BrangeValue.innerText = this.value, changeColor()"><span id="BrangeValue">200</span></dt>
-                </dl>
-
-                
+            <div id="color-section">
+                <h1>Color</h1>
+                <!--<button class="btn" id="color">Color</button>-->
+                <div id="color-box"></div>
+                <div id="slider-batch">
+                    <dl>
+                        <dt>R: <input type="range" min="0" max="255" value="25" class="colorslider" id="R-slider" oninput="RrangeValue.innerText = this.value, changeColor()"><span id="RrangeValue">25</span></dt>
+                        <dt>G: <input type="range" min="0" max="255" value="25" class="colorslider" id="G-slider" oninput="GrangeValue.innerText = this.value, changeColor()"><span id="GrangeValue">25</span></dt>
+                        <dt>B: <input type="range" min="0" max="255" value="200" class="colorslider" id="B-slider" oninput="BrangeValue.innerText = this.value, changeColor()"><span id="BrangeValue">200</span></dt>
+                        <dt>A: <input type="range" min="0" max="1" step="0.1" value="0.8" class="colorslider" id="A-slider" oninput="ArangeValue.innerText = this.value, changeColor()"><span id="ArangeValue">0.8</span></dt>
+                    </dl>
+                </div>
             </div>
-            <button class="btn" id="grayscale">Grayscale</button>
-            <button class="btn" id="eraser">Eraser</button>
-            <button class="btn" id="clear">Clear Grid</button>
+            <button class="btn" id="eraser"><i class="icon-eraser"></i> Eraser</button>
+            <button class="btn" id="clear"><i class="icon-remove"></i> Clear Grid</button>
         </div>
         <div class="container" id="grid">
 
         </div>
         <div class="small-box" id="right-side">
             <div id="slider-box">
-                <h1>Size</h1>
-                <input type="range" min="1" max="100" value="10" class="slider" id="square-slider" oninput="rangeValue.innerText = this.value">
+                <h1>Squares Per Side</h1>
+                <input type="range" min="1" max="100" value="10" class="slider" id="square-slider" oninput="rangeValue.innerText = this.value, changeGrid()">
                 <p id="rangeValue">10</p>
+            </div>
+            <div id="square-border-selection">
+                <h1>Square Borders</h1>
+                <div id="radio-buttons">
+                    <input type="radio" id="border-on" name="border-on-off" value="border-on" checked="checked">
+                    <label for="border-on">On</label><br>
+                    <input type="radio" id="border-off" name="border-on-off" value="border-off">
+                    <label for="border-off">Off</label>
+                </div>
             </div>
         </div>
     </main>
