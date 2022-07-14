@@ -88,11 +88,13 @@ function dragColorMe(e) {
 
 // Erase squares by changing color to white
 function eraseSquares() {
-    for (let i = 0; i < square.length; i++) {
-        squareColor = "white"
-        square[i].addEventListener("click", colorMe)
-        square[i].addEventListener("mouseover", dragColorMe)
-    }
+    squareColor = "white"
+    colorSquares(squareColor)
+    // for (let i = 0; i < square.length; i++) {
+    //     squareColor = "white"
+    //     square[i].addEventListener("click", colorMe)
+    //     square[i].addEventListener("mouseover", dragColorMe)
+    // }
 }
 
 // Clear grid by making all squares white
@@ -152,8 +154,8 @@ const square = document.getElementsByClassName("square");
 //     square[i].addEventListener("mouseover", changeColor)
 // }
 
-//document.querySelector("#color").addEventListener("click", colorSquares);
-
+// Button to start coloring
+document.querySelector("#color").addEventListener("click", changeColor);
 
 // Buttons to erase and clear grid
 document.querySelector("#eraser").addEventListener("click", eraseSquares);
