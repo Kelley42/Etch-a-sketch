@@ -158,8 +158,8 @@ const square = document.getElementsByClassName("square");
 document.querySelector("#color").addEventListener("click", changeColor);
 
 // Buttons to erase and clear grid
-document.querySelector("#eraser").addEventListener("click", eraseSquares);
-document.querySelector("#clear").addEventListener("click", clearSquares);
+let eraser = document.querySelector("#eraser").addEventListener("click", eraseSquares);
+let clearGrid = document.querySelector("#clear").addEventListener("click", clearSquares);
 
 // Radio buttons for square borders
 const radioButtons = document.querySelectorAll("input[name='border-on-off']");

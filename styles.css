@@ -3,6 +3,7 @@ html {
     justify-content: center;
     /*--columns-row: 2;*/
     border: dashed red;
+    user-select: none;
 }
 
 body {
