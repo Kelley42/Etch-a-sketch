@@ -117,7 +117,7 @@ function changeBorder() {
 
 // Can click on squares immediately to change color
 const grid = document.querySelector("#grid");
-grid.addEventListener("mousedown", changeColor);
+//grid.addEventListener("mousedown", changeColor);
 
 // Create grid
 const numSquares = 10; //default
@@ -147,7 +147,10 @@ slider.addEventListener("mouseup", changeGrid);
 // Set squares and their initial color
 let squareColor = "white";
 const square = document.getElementsByClassName("square");
-
+// for (let i = 0; i < square.length; i++) {
+//     square[i].addEventListener("click", changeColor)
+//     square[i].addEventListener("mouseover", changeColor)
+// }
 
 //document.querySelector("#color").addEventListener("click", colorSquares);
 
