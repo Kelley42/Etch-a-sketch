@@ -1,5 +1,4 @@
 const numSquares = 10; //default num of grid squares per side
-const squareColor = "white"; //default color
 const favoritesNumber = 6; // default number of favorites squares
 
 // function createGrid() {
@@ -59,6 +58,7 @@ function changeGrid() {
 
 // Change RGBA value of color
 function changeColor(e) {
+    console.log("change")
     colorButtonOn()
     let rvalue = rSlider.value
     let gvalue = gSlider.value
@@ -71,6 +71,7 @@ function changeColor(e) {
 
 // Color squares by clicking or dragging over
 function colorSquares(newColor) {
+    console.log("color")
     squareColor = newColor
     for (let i = 0; i < square.length; i++) {
         square[i].addEventListener("click", colorMe)
@@ -80,6 +81,7 @@ function colorSquares(newColor) {
 
 // Color squares
 function colorMe(e) {
+    console.log("hola")
     e.target.style.backgroundColor = squareColor
 }
 
@@ -92,6 +94,7 @@ function dragColorMe(e) {
 
 // Erase squares by changing color to white
 function eraseSquares() {
+    console.log("erase")
     eraserButtonOn()
     squareColor = "white"
     colorSquares(squareColor)
@@ -104,6 +107,7 @@ function eraseSquares() {
 
 // Clear grid by making all squares white
 function clearSquares() {
+    console.log("clear")
     colorButtonOn()
     for (let i = 0; i < square.length; i++) {
         squareColor = "white"
@@ -181,6 +185,7 @@ slider.addEventListener("mouseup", changeGrid);
 
 // Set squares
 const square = document.getElementsByClassName("square");
+let squareColor = "white"; //default color
 
 // Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
 // Button to start coloring
