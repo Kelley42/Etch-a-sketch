@@ -1,3 +1,7 @@
+const numSquares = 10; //default num of grid squares per side
+const squareColor = "white"; //default color
+const favoritesNumber = 6; // default number of favorites squares
+
 // function createGrid() {
 //     const grid = document.querySelector("#grid");
 //     for (let i = 0; i < numSquares; i++) {
@@ -132,12 +136,15 @@ function changeBorder() {
     }
 }
 
+function createFavorites() {
+
+}
+
 // Can click on squares immediately to change color
 const grid = document.querySelector("#grid");
 //grid.addEventListener("mousedown", changeColor);
 
 // Create grid
-const numSquares = 10; //default
 createGrid(numSquares);
 
 
@@ -161,26 +168,25 @@ aSlider.addEventListener("mouseup", changeColor);
 let slider = document.querySelector("#square-slider");
 slider.addEventListener("mouseup", changeGrid);
 
-// Set squares and their initial color
-let squareColor = "white";
+// Set squares
 const square = document.getElementsByClassName("square");
-// for (let i = 0; i < square.length; i++) {
-//     square[i].addEventListener("click", changeColor)
-//     square[i].addEventListener("mouseover", changeColor)
-// }
 
 // Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
 // Button to start coloring
 const colorClicked = document.querySelector("#color");
 colorClicked.addEventListener("click", changeColor);
-//const propertyColor = document.getElementById("color")
 // Buttons to erase and clear grid
 const eraserClicked = document.querySelector("#eraser");
 eraserClicked.addEventListener("click", eraseSquares);
-//const propertyEraser = document.getElementById("eraser")
-//document.querySelector("#eraser").addEventListener("click", eraseSquares);
 const clearClicked = document.querySelector("#clear");
 clearClicked.addEventListener("click", clearSquares);
+
+// Set color of buttons as default
+colorButtonOn();
+
+// Favorites section
+const favorites = document.querySelector("#favorites-section");
+createFavorites(favoritesNumber);
 
 // Radio buttons for square borders
 const radioButtons = document.querySelectorAll("input[name='border-on-off']");
