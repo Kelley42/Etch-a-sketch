@@ -41,19 +41,20 @@ function createGrid(numSquares) {
     //     }
     //     grid.appendChild(row);
     // }
-        for (let i = 0; i < (numSquares * numSquares); i++) {
-            const square = document.createElement("div");
-            square.classList.add("square")
-            square.style.width = `${size}px` 
-            square.style.height = `${size}px`
-            grid.appendChild(square)
-        }
+    for (let i = 0; i < (numSquares * numSquares); i++) {
+        const square = document.createElement("div");
+        square.classList.add("square")
+        square.style.width = `${size}px` 
+        square.style.height = `${size}px`
+        grid.appendChild(square)
+    }
 }
 
 // Changes size of grid
 function changeGrid() {
     grid.innerHTML = ""
     createGrid(slider.value)
+    borderOn.checked = true
 }
 
 // Change RGBA value of color
@@ -130,7 +131,7 @@ function eraserButtonOn() {
 // Change squares border
 function changeBorder() {
     for (let i = 0; i < square.length; i++) {
-        if (document.getElementById("border-off").checked) {
+        if (borderOff.checked) {
             square[i].style.border = "0";
         }
         else {
@@ -208,8 +209,10 @@ createFavorites(favoritesNumber);
 const radioButtons = document.querySelectorAll("input[name='border-on-off']");
 
 //let radioButtons = document.querySelector("radio-buttons").addEventListener("click", changeBorder);
-let borderOn = document.querySelector("#border-on").addEventListener("click", changeBorder);
-let borderOff = document.querySelector("#border-off").addEventListener("click", changeBorder);
+let borderOn = document.querySelector("#border-on")
+borderOn.addEventListener("click", changeBorder);
+let borderOff = document.querySelector("#border-off")
+borderOff.addEventListener("click", changeBorder);
 
 // Setting mouseup and mousedown
 let mouseDown = false;
