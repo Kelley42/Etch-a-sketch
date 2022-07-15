@@ -48,7 +48,6 @@ function createGrid(numSquares) {
             square.style.width = `${size}px` 
             square.style.height = `${size}px`
             grid.appendChild(square)
-
         }
 }
 
@@ -136,8 +135,20 @@ function changeBorder() {
     }
 }
 
-function createFavorites() {
-
+// Create favorites boxes to store favorite colors, and X marks boxes to remove favorites
+function createFavorites(favoritesNumber) {
+    for (let i = 0; i < favoritesNumber; i++) {
+        const favSquare = document.createElement("div");
+        favSquare.classList.add("favSquare")
+        favorites.appendChild(favSquare)
+        for (let j = 0; j < 1; j++) {        
+            const favXSquare = document.createElement("div");
+            favXSquare.classList.add("favXSquare")
+            favXSquare.innerHTML = "X"
+            favXSquare.style.fontSize = "10px";
+            favSquare.appendChild(favXSquare)
+        }
+    }
 }
 
 // Can click on squares immediately to change color
