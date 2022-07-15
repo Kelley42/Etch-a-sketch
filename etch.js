@@ -56,6 +56,7 @@ function changeGrid() {
 
 // Change RGBA value of color
 function changeColor(e) {
+    colorButtonOn()
     let rvalue = rSlider.value
     let gvalue = gSlider.value
     let bvalue = bSlider.value
@@ -88,6 +89,7 @@ function dragColorMe(e) {
 
 // Erase squares by changing color to white
 function eraseSquares() {
+    eraserButtonOn()
     squareColor = "white"
     colorSquares(squareColor)
     // for (let i = 0; i < square.length; i++) {
@@ -99,10 +101,23 @@ function eraseSquares() {
 
 // Clear grid by making all squares white
 function clearSquares() {
+    colorButtonOn()
     for (let i = 0; i < square.length; i++) {
         squareColor = "white"
         square[i].style.backgroundColor = squareColor
     }
+}
+
+// Change color of buttons, color active
+function colorButtonOn() {
+    colorClicked.className = "button-active"
+    eraserClicked.className = "button-inactive"
+}
+
+// Change color of buttons, eraser active
+function eraserButtonOn() {
+    colorClicked.className = "button-inactive"
+    eraserClicked.className = "button-active"
 }
 
 // Change squares border
@@ -154,12 +169,18 @@ const square = document.getElementsByClassName("square");
 //     square[i].addEventListener("mouseover", changeColor)
 // }
 
+// Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
 // Button to start coloring
-document.querySelector("#color").addEventListener("click", changeColor);
-
+const colorClicked = document.querySelector("#color");
+colorClicked.addEventListener("click", changeColor);
+//const propertyColor = document.getElementById("color")
 // Buttons to erase and clear grid
-let eraser = document.querySelector("#eraser").addEventListener("click", eraseSquares);
-let clearGrid = document.querySelector("#clear").addEventListener("click", clearSquares);
+const eraserClicked = document.querySelector("#eraser");
+eraserClicked.addEventListener("click", eraseSquares);
+//const propertyEraser = document.getElementById("eraser")
+//document.querySelector("#eraser").addEventListener("click", eraseSquares);
+const clearClicked = document.querySelector("#clear");
+clearClicked.addEventListener("click", clearSquares);
 
 // Radio buttons for square borders
 const radioButtons = document.querySelectorAll("input[name='border-on-off']");

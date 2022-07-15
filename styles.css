@@ -3,7 +3,7 @@ html {
     justify-content: center;
     /*--columns-row: 2;*/
     border: dashed red;
-    user-select: none;
+    user-select: none; /* To make sure mouseover only if mousedown */
 }
 
 body {
@@ -135,6 +135,16 @@ button {
     padding: 10px;
     margin: 10px;
 }
+
+.button-active {
+    background-color: green;
+    color: black;
+}
+
+.button-inactive {
+    background-color: red;
+    color: white;
+} 
 
 #square-border-selection {
     display: flex;
