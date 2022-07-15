@@ -196,7 +196,7 @@ clearClicked.addEventListener("click", clearSquares);
 colorButtonOn();
 
 // Favorites section
-const favorites = document.querySelector("#favorites-section");
+const favorites = document.querySelector("#favorites-box-section");
 createFavorites(favoritesNumber);
 
 // Radio buttons for square borders

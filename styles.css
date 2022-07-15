@@ -132,6 +132,14 @@ h1 {
 #favorites-section {
     border: solid pink;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#favorites-box-section {
+    border: dashed purple;
+    display: flex;
 }
 
 .favSquare {
