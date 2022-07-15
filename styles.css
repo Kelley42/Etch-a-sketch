@@ -73,7 +73,6 @@ main {
     align-items: center;
     border: dashed green;
     width: 200px;
-    margin-bottom: 40px;
 }
 
 h1 {
@@ -81,10 +80,11 @@ h1 {
 }
 
 #color-box {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     border: 1px solid black;
     background-color: rgb(25, 25, 200);
+    border-radius: 50%;
 }
 
 .colorslider {
@@ -112,7 +112,6 @@ h1 {
     border: dashed purple;
     width: 250px;
     height: 100px;
-    margin-bottom: 60px;
 }
 
 #square-slider {
@@ -128,6 +127,17 @@ h1 {
 
 #square-slider::-webkit-slider-thumb:hover {
     background:black;
+}
+
+#favorites-section {
+    border: solid pink;
+    display: flex;
+}
+
+.favorite-boxes {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
 }
 
 button {
