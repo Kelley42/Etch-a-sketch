@@ -17,7 +17,10 @@
         <div class="small-box" id="left-side">
             <div id="color-section">
                 <button class="btn" id="color"><i class="fas fa-paint-brush"></i> Color</button>
-                <div id="color-box"></div>
+                <div id="color-square-section">
+                    <div id="color-box"></div>
+                    <div id="heart-button"><span id="heart-text">Save</span></div>
+                </div>
                 <div id="slider-batch">
                     <dl>
                         <dt>R: <input type="range" min="0" max="255" value="25" class="colorslider" id="R-slider" oninput="RrangeValue.innerText = this.value, changeColor()"><span id="RrangeValue">25</span></dt>
