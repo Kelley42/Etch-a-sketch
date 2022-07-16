@@ -146,6 +146,9 @@ function createFavorites(favoritesNumber) {
         const favSquare = document.createElement("div");
         favSquare.classList.add("favSquare")
         favSquare.setAttribute("id", "favSquareNum"+`${i}`)
+        favSquare.style.backgroundColor = "white"
+        //favoriteBoxes.push(favSquare)
+        //favSquare.setAttribute("background-color", "white")
         favorites.appendChild(favSquare)
         for (let j = 0; j < 1; j++) {        
             const favXSquare = document.createElement("div");
@@ -159,11 +162,17 @@ function createFavorites(favoritesNumber) {
 
 // Add favorite colors if heart clicked
 function addFavorites() {
-
-    // for (let i = 0; i < favSquareColor; i++) {
+    console.log("yay")
+    for (let i = 0; i < favSquare.length; i++) {
+        if (favSquare[i].style.backgroundColor == "white") { // If box has no color assigned
+            console.log("hi")
+            favSquare[i].style.backgroundColor = favoriteColor
+            break;
+        }
+    }
     //     let favSquareColor[i] = document.querySelector(".favSquare")
     //     favSquareColor[i].style.backgroundColor = favoriteColor
-    // }
+    
 
 }
 
@@ -199,11 +208,6 @@ slider.addEventListener("mouseup", changeGrid);
 const square = document.getElementsByClassName("square");
 let squareColor = "white"; //default color
 
-// Heart for favorites
-let heartButton = document.querySelector("#heart-button");
-heartButton.addEventListener("click", addFavorites)
-let favoriteColor;
-
 // Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
 // Button to start coloring
 const colorClicked = document.querySelector("#color");
@@ -220,6 +224,25 @@ colorButtonOn();
 // Favorites section
 const favorites = document.querySelector("#favorites-box-section");
 createFavorites(favoritesNumber);
+let favoriteColor;
+
+// Assign variable to favorite boxes
+// for (let i = 0; i < favoritesNumber; i++) {
+//     this["favBox"+i] = document.querySelector("#favSquareNum" +`${i}`)
+// }
+
+
+// let favBox0 = document.querySelector("#favSquareNum0")
+// let favBox1 = document.querySelector("#favSquareNum1")
+// let favBox2 = document.querySelector("#favSquareNum2")
+// let favBox3 = document.querySelector("#favSquareNum3")
+// let favBox4 = document.querySelector("#favSquareNum4")
+// let favBox5 = document.querySelector("#favSquareNum5")
+const favSquare = document.getElementsByClassName("favSquare");
+
+// Heart for favorites
+let heartButton = document.querySelector("#heart-button");
+heartButton.addEventListener("click", addFavorites)
 
 // Radio buttons for square borders
 const radioButtons = document.querySelectorAll("input[name='border-on-off']");
