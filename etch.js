@@ -67,6 +67,7 @@ function changeColor(e) {
     let avalue = aSlider.value
     let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
     colorExampleSquare.style.backgroundColor = newColor;
+    favoriteColor = newColor;
     colorSquares(newColor)
 }
 
@@ -82,7 +83,6 @@ function colorSquares(newColor) {
 
 // Color squares
 function colorMe(e) {
-    console.log("hola")
     e.target.style.backgroundColor = squareColor
 }
 
@@ -145,6 +145,7 @@ function createFavorites(favoritesNumber) {
     for (let i = 0; i < favoritesNumber; i++) {
         const favSquare = document.createElement("div");
         favSquare.classList.add("favSquare")
+        favSquare.setAttribute("id", "favSquareNum"+`${i}`)
         favorites.appendChild(favSquare)
         for (let j = 0; j < 1; j++) {        
             const favXSquare = document.createElement("div");
@@ -154,6 +155,16 @@ function createFavorites(favoritesNumber) {
             favSquare.appendChild(favXSquare)
         }
     }
+}
+
+// Add favorite colors if heart clicked
+function addFavorites() {
+
+    // for (let i = 0; i < favSquareColor; i++) {
+    //     let favSquareColor[i] = document.querySelector(".favSquare")
+    //     favSquareColor[i].style.backgroundColor = favoriteColor
+    // }
+
 }
 
 // Can click on squares immediately to change color
@@ -167,7 +178,7 @@ createGrid(numSquares);
 //document.documentElement.style.setProperty("--columns-row", numSquares)
 
 
-// Color example square
+// Color example square 
 let colorExampleSquare = document.querySelector("#color-box");
 
 // Sliders to change color (RGBA values)
@@ -187,6 +198,11 @@ slider.addEventListener("mouseup", changeGrid);
 // Set squares
 const square = document.getElementsByClassName("square");
 let squareColor = "white"; //default color
+
+// Heart for favorites
+let heartButton = document.querySelector("#heart-button");
+heartButton.addEventListener("click", addFavorites)
+let favoriteColor;
 
 // Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
 // Button to start coloring

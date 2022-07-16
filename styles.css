@@ -219,6 +219,10 @@ button {
     color: white;
 } 
 
+#eraser {
+    margin-top: 50px;
+}
+
 #square-border-selection {
     display: flex;
     flex-direction: column;
