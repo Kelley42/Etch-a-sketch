@@ -162,18 +162,21 @@ function createFavorites(favoritesNumber) {
 
 // Add favorite colors if heart clicked
 function addFavorites() {
-    console.log("yay")
     for (let i = 0; i < favSquare.length; i++) {
         if (favSquare[i].style.backgroundColor == "white") { // If box has no color assigned
-            console.log("hi")
             favSquare[i].style.backgroundColor = favoriteColor
+            favSquare[i].addEventListener("click", changeToFavColor)
             break;
         }
     }
-    //     let favSquareColor[i] = document.querySelector(".favSquare")
-    //     favSquareColor[i].style.backgroundColor = favoriteColor
-    
+}
 
+// Use color from favorites box
+function changeToFavColor(e) {
+    colorButtonOn()
+    colorExampleSquare.style.backgroundColor = e.target.style.backgroundColor
+    newColor = e.target.style.backgroundColor
+    colorSquares(newColor)
 }
 
 // Can click on squares immediately to change color
