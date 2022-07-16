@@ -166,6 +166,7 @@ function addFavorites() {
         if (favSquare[i].style.backgroundColor == "white") { // If box has no color assigned
             favSquare[i].style.backgroundColor = favoriteColor
             favSquare[i].addEventListener("click", changeToFavColor)
+            favXSquare[i].addEventListener("click", removeFavColor)
             break;
         }
     }
@@ -177,6 +178,11 @@ function changeToFavColor(e) {
     colorExampleSquare.style.backgroundColor = e.target.style.backgroundColor
     newColor = e.target.style.backgroundColor
     colorSquares(newColor)
+}
+
+// Remove favorite color
+function removeFavColor() {
+    this.parentNode.style.backgroundColor = "white"
 }
 
 // Can click on squares immediately to change color
@@ -242,6 +248,7 @@ let favoriteColor;
 // let favBox4 = document.querySelector("#favSquareNum4")
 // let favBox5 = document.querySelector("#favSquareNum5")
 const favSquare = document.getElementsByClassName("favSquare");
+const favXSquare = document.getElementsByClassName("favXSquare")
 
 // Heart for favorites
 let heartButton = document.querySelector("#heart-button");
