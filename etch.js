@@ -185,6 +185,9 @@ function removeFavColor() {
     this.parentNode.style.backgroundColor = "white"
 }
 
+
+
+
 // Can click on squares immediately to change color
 const grid = document.querySelector("#grid");
 //grid.addEventListener("mousedown", changeColor);
@@ -268,3 +271,4 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
+changeColor()
