@@ -61,7 +61,7 @@ function changeGrid() {
 
 // Change RGBA value of color
 function changeColor(e) {
-    console.log("change")
+    //if (colorClicked.className == "button-active") { // Color
     colorButtonOn()
     let rvalue = rSlider.value
     let gvalue = gSlider.value
@@ -71,28 +71,104 @@ function changeColor(e) {
     colorExampleSquare.style.backgroundColor = newColor;
     favoriteColor = newColor;
     colorSquares(newColor)
+    
+    // else if (rainbowClicked.className == "button-active") { // Rainbow
+    //     rainbowButtonOn()
+    //     let rvalue = Math.floor(Math.random() * 256)
+    //     let gvalue = Math.floor(Math.random() * 256)
+    //     let bvalue = Math.floor(Math.random() * 256)
+    //     let avalue = 1
+    //     let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
+    //     colorExampleSquare.style.backgroundColor = newColor;
+    //     favoriteColor = newColor;
+    //     colorSquares(newColor)
+    // }
 }
 
 // Color squares by clicking or dragging over
 function colorSquares(newColor) {
-    console.log("color")
     squareColor = newColor
     for (let i = 0; i < square.length; i++) {
         square[i].addEventListener("click", colorMe)
         square[i].addEventListener("mouseover", dragColorMe)
     }
+    // if (rainbowClicked.className == "button-active") { // Rainbow
+    //     changeColor()
+    // }
 }
 
 // Color squares
 function colorMe(e) {
+    console.log(squareColor)
     e.target.style.backgroundColor = squareColor
+    if (randomClicked.className == "button-active") { // Random
+        e.target.style.backgroundColor = squareColor
+        changeColor
+        //randomSquares()
+    }
+    else if (rainbowClicked.className == "button-active") { // Rainbow
+        e.target.style.backgroundColor = squareColor
+        getRandomColor()
+    }
+
+    // if (rainbowClicked.className = "button-active") {
+    //     e.target.style.backgroundColor = squareColor
+    //     rainbowSquares()
+    // }
+    // else {
+    //     e.target.style.backgroundColor = squareColor
+    // }
 }
 
 // Will only color while mouseover if mouse already down
 function dragColorMe(e) {
-    if(mouseDown) {
+    if (mouseDown) {
         e.target.style.backgroundColor = squareColor
     }
+    if (randomClicked.className == "button-active") { // Random
+        changeColor
+        //randomSquares()
+    }
+    else if (rainbowClicked.className == "button-active") { // Rainbow
+        getRandomColor()
+    }
+
+
+    // if (rainbowClicked.className = "button-active") {
+    //     if (mouseDown) {
+    //         e.target.style.backgroundColor = squareColor
+    //     }
+    //     rainbowSquares()
+    // }
+    // else {
+    //     if (mouseDown) {
+    //         e.target.style.backgroundColor = squareColor
+    //     }
+    // }
+}
+
+// Color squares in random color
+function randomSquares() {
+    randomButtonOn()
+    getRandomColor()
+}
+
+// Color squares in rainbow colors
+function rainbowSquares() {
+    rainbowButtonOn()
+    getRandomColor()
+}
+
+// Get random color
+function getRandomColor() {
+    let rvalue = Math.floor(Math.random() * 256)
+    let gvalue = Math.floor(Math.random() * 256)
+    let bvalue = Math.floor(Math.random() * 256)
+    let avalue = (Math.floor((Math.random() * 10) + 1)) / 10
+    let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
+    colorExampleSquare.style.backgroundColor = newColor;
+    favoriteColor = newColor;
+    colorSquares(newColor)
 }
 
 // Erase squares by changing color to white
@@ -121,12 +197,32 @@ function clearSquares() {
 // Change color of buttons, color active
 function colorButtonOn() {
     colorClicked.className = "button-active"
+    randomClicked.className = "button-inactive"
+    rainbowClicked.className = "button-inactive"
+    eraserClicked.className = "button-inactive"
+}
+
+//Change color of buttons, random active
+function randomButtonOn() {
+    colorClicked.className = "button-inactive"
+    randomClicked.className = "button-active"
+    rainbowClicked.className = "button-inactive"
+    eraserClicked.className = "button-inactive"
+}
+
+//Change color of buttons, rainbow active
+function rainbowButtonOn() {
+    colorClicked.className = "button-inactive"
+    randomClicked.className = "button-inactive"
+    rainbowClicked.className = "button-active"
     eraserClicked.className = "button-inactive"
 }
 
 // Change color of buttons, eraser active
 function eraserButtonOn() {
     colorClicked.className = "button-inactive"
+    randomClicked.className = "button-inactive"
+    rainbowClicked.className = "button-inactive"
     eraserClicked.className = "button-active"
 }
 
@@ -226,7 +322,11 @@ let squareColor = "white"; //default color
 // Button to start coloring
 const colorClicked = document.querySelector("#color");
 colorClicked.addEventListener("click", changeColor);
-// Buttons to erase and clear grid
+// Random, rainbow, eraser, and clear buttons
+const randomClicked = document.querySelector("#random");
+randomClicked.addEventListener("click", randomSquares);
+const rainbowClicked = document.querySelector("#rainbow");
+rainbowClicked.addEventListener("click", rainbowSquares);
 const eraserClicked = document.querySelector("#eraser");
 eraserClicked.addEventListener("click", eraseSquares);
 const clearClicked = document.querySelector("#clear");
