@@ -55,6 +55,8 @@ function changeGrid() {
     grid.innerHTML = ""
     createGrid(slider.value)
     borderOn.checked = true
+    colorButtonOn()
+    changeColor()
 }
 
 // Change RGBA value of color
@@ -238,18 +240,6 @@ const favorites = document.querySelector("#favorites-box-section");
 createFavorites(favoritesNumber);
 let favoriteColor;
 
-// Assign variable to favorite boxes
-// for (let i = 0; i < favoritesNumber; i++) {
-//     this["favBox"+i] = document.querySelector("#favSquareNum" +`${i}`)
-// }
-
-
-// let favBox0 = document.querySelector("#favSquareNum0")
-// let favBox1 = document.querySelector("#favSquareNum1")
-// let favBox2 = document.querySelector("#favSquareNum2")
-// let favBox3 = document.querySelector("#favSquareNum3")
-// let favBox4 = document.querySelector("#favSquareNum4")
-// let favBox5 = document.querySelector("#favSquareNum5")
 const favSquare = document.getElementsByClassName("favSquare");
 const favXSquare = document.getElementsByClassName("favXSquare")
 
