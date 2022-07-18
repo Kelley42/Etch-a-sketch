@@ -186,12 +186,17 @@ function eraseSquares() {
 
 // Clear grid by making all squares white
 function clearSquares() {
-    console.log("clear")
-    colorButtonOn()
+    clearButtonOn()
     for (let i = 0; i < square.length; i++) {
         squareColor = "white"
         square[i].style.backgroundColor = squareColor
     }
+    // Make button white again
+    setTimeout(function() {
+        // Make button blue
+        colorButtonOn()
+        changeColor()
+    }, 150);
 }
 
 // Change color of buttons, color active
@@ -200,6 +205,7 @@ function colorButtonOn() {
     randomClicked.className = "button-inactive"
     rainbowClicked.className = "button-inactive"
     eraserClicked.className = "button-inactive"
+    clearClicked.className = "button-inactive"
 }
 
 //Change color of buttons, random active
@@ -224,6 +230,15 @@ function eraserButtonOn() {
     randomClicked.className = "button-inactive"
     rainbowClicked.className = "button-inactive"
     eraserClicked.className = "button-active"
+}
+
+// Change color of buttons, clear active
+function clearButtonOn() {
+    colorClicked.className = "button-inactive"
+    randomClicked.className = "button-inactive"
+    rainbowClicked.className = "button-inactive"
+    eraserClicked.className = "button-inactive"
+    clearClicked.className = "button-active"
 }
 
 // Change squares border
