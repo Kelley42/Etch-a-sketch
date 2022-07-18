@@ -70,7 +70,7 @@ h1 {
     width: 75px;
     height: 75px;
     border: 1px solid black;
-    background-color: rgba(25, 25, 200, 0.8);
+    background-color: rgba(25, 115, 225, 0.8);
     border-radius: 50%;
     margin-left: 45px;
     margin-bottom: -15px;
@@ -196,14 +196,16 @@ h1 {
 }
 
 .favSquare {
-    border: 1px solid black;
+    border: 2px solid rgba(25, 25, 100, 0.8);
     /*background-color: white;*/
     width: 30px;
     height: 30px;
+    margin-left: -1px;
 }
 
 .favXSquare {
-    border: 1px solid black;
+    border-right: 2px solid rgba(25, 25, 100, 0.8);
+    border-bottom: 2px solid rgba(25, 25, 100, 0.8);
     width: 10px;
     height: 10px;
     display: flex;
@@ -225,7 +227,7 @@ button {
 }
 
 .button-active {
-    background-color: rgb(34, 108, 219); 
+    background-color: #418ef3;; 
     color: white;
 }
 
@@ -248,13 +250,7 @@ button {
     width: 50px;  /*60*/
     height: 25px;  /*34*/
 }
-  
-/* .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-} */
-  
+
 .switchslider {
     position: absolute;
     /* cursor: pointer; */
@@ -265,6 +261,8 @@ button {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+
+    border-radius: 34px;  /*34*/
 }
   
 .switchslider:before {
@@ -278,15 +276,17 @@ button {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+
+    border-radius: 50%;
 }
   
 input:checked + .switchslider {
-    background-color: #2196F3;
+    background-color: #418ef3; /*#3582e7*/
 }
   
-input:focus + .switchslider {
-    box-shadow: 0 0 1px #2196F3;
-}
+/*input:focus + .switchslider {
+    box-shadow: 0 0 1px rgb(34, 108, 219);  /*#2196F3
+}*/
   
 input:checked + .switchslider:before {
     -webkit-transform: translateX(26px);
@@ -294,10 +294,4 @@ input:checked + .switchslider:before {
     transform: translateX(26px);
 }
 
-.switchslider.round {
-    border-radius: 34px;  /*34*/
-}
   
-.switchslider.round:before {
-    border-radius: 50%;
-}

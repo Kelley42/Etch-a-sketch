@@ -243,14 +243,26 @@ function clearButtonOn() {
 
 // Change squares border
 function changeBorder() {
-    for (let i = 0; i < square.length; i++) {
-        if (borderOff.checked) {
+    if (!(borderOn.property == "checked")) {  // Unchecked
+        for (let i = 0; i < square.length; i++) {
             square[i].style.border = "0";
         }
-        else {
+        borderOn.property = "checked"
+    }
+    else {  // Checked
+        for (let i = 0; i < square.length; i++) {
             square[i].style.border = "1px solid black";
         }
+        borderOn.property = "unchecked"
     }
+    // for (let i = 0; i < square.length; i++) {
+    //     if (borderOn.property = "checked") {
+    //         square[i].style.border = "0";
+    //     }
+    //     else {
+    //         square[i].style.border = "1px solid black";
+    //     }
+    // }
 }
 
 // Create favorites boxes to store favorite colors, and X marks boxes to remove favorites
@@ -370,10 +382,11 @@ heartButton.addEventListener("click", addFavorites)
 // borderOn.addEventListener("click", changeBorder);
 // let borderOff = document.querySelector("#border-off")
 // borderOff.addEventListener("click", changeBorder);
-let borderOn = document.querySelector("checkbox")
+
+// let borderOn = document.querySelector("checkbox")
+// borderOn.addEventListener("click", changeBorder)
+let borderOn = document.querySelector(".switchslider")
 borderOn.addEventListener("click", changeBorder)
-let borderOff = document.querySelector("checkbox")
-borderOff.addEventListener("click", changeBorder)
 
 // Setting mouseup and mousedown
 let mouseDown = false;
