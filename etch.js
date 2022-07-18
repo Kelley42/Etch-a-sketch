@@ -363,13 +363,17 @@ let heartButton = document.querySelector("#heart-button");
 heartButton.addEventListener("click", addFavorites)
 
 // Radio buttons for square borders
-const radioButtons = document.querySelectorAll("input[name='border-on-off']");
+//const radioButtons = document.querySelectorAll("input[name='border-on-off']");
 
 //let radioButtons = document.querySelector("radio-buttons").addEventListener("click", changeBorder);
-let borderOn = document.querySelector("#border-on")
-borderOn.addEventListener("click", changeBorder);
-let borderOff = document.querySelector("#border-off")
-borderOff.addEventListener("click", changeBorder);
+// let borderOn = document.querySelector("#border-on")
+// borderOn.addEventListener("click", changeBorder);
+// let borderOff = document.querySelector("#border-off")
+// borderOff.addEventListener("click", changeBorder);
+let borderOn = document.querySelector("checkbox")
+borderOn.addEventListener("click", changeBorder)
+let borderOff = document.querySelector("checkbox")
+borderOff.addEventListener("click", changeBorder)
 
 // Setting mouseup and mousedown
 let mouseDown = false;

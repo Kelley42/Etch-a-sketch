@@ -46,17 +46,23 @@
         </div>
         <div class="small-box" id="right-side">
             <div id="slider-box">
-                <h1>Squares Per Side</h1>
+                <!-- <h1>Squares Per Side</h1>
                 <input type="range" min="1" max="100" value="10" class="slider" id="square-slider" oninput="rangeValue.innerText = this.value, changeGrid()">
-                <p id="rangeValue">10</p>
+                <p id="rangeValue">10</p> -->
+                <dl>
+                    <h1>Grid</h1>
+                    <dt>Size: <input type="range" min="1" max="100" value="10" class="slider" id="square-slider" oninput="rangeValue.innerText = this.value, changeGrid()"><span id="rangeValue">10</span></dt>
+                </dl>
             </div>
             <div id="square-border-selection">
-                <h1>Square Borders</h1>
                 <div id="radio-buttons">
-                    <input type="radio" id="border-on" name="border-on-off" value="border-on" checked="checked">
+                    <!-- <input type="radio" id="border-on" name="border-on-off" value="border-on" checked="checked">
                     <label for="border-on">On</label><br>
                     <input type="radio" id="border-off" name="border-on-off" value="border-off">
-                    <label for="border-off">Off</label>
+                    <label for="border-off">Off</label> -->
+                    <dl>
+                        <dt>Borders: &emsp;<label class="switch"><input type="checkbox" checked><span class="switchslider round"></span></label></dt>
+                    </dl>
                 </div>
             </div>
         </div>
