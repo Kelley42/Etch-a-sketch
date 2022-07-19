@@ -196,16 +196,16 @@ h1 {
 }
 
 .favSquare {
-    border: 2px solid rgba(25, 25, 100, 0.8);
+    border: 1px solid rgba(25, 25, 100, 0.8);
     /*background-color: white;*/
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-left: -1px;
 }
 
 .favXSquare {
-    border-right: 2px solid rgba(25, 25, 100, 0.8);
-    border-bottom: 2px solid rgba(25, 25, 100, 0.8);
+    border-right: 1px solid rgba(25, 25, 100, 0.8);
+    border-bottom: 1px solid rgba(25, 25, 100, 0.8);
     width: 10px;
     height: 10px;
     display: flex;

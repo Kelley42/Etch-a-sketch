@@ -69,6 +69,7 @@ function changeColor(e) {
     let avalue = aSlider.value
     let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
     colorExampleSquare.style.backgroundColor = newColor;
+    console.log(`bye${colorExampleSquare.style.backgroundColor}`)
     favoriteColor = newColor;
     colorSquares(newColor)
     
@@ -87,6 +88,7 @@ function changeColor(e) {
 
 // Color squares by clicking or dragging over
 function colorSquares(newColor) {
+    console.log(`newColor${newColor}`)
     squareColor = newColor
     for (let i = 0; i < square.length; i++) {
         square[i].addEventListener("click", colorMe)
@@ -99,7 +101,7 @@ function colorSquares(newColor) {
 
 // Color squares
 function colorMe(e) {
-    console.log(squareColor)
+    console.log(`square${squareColor}`)
     e.target.style.backgroundColor = squareColor
     if (randomClicked.className == "button-active") { // Random
         e.target.style.backgroundColor = squareColor
@@ -196,7 +198,7 @@ function clearSquares() {
         // Make button blue
         colorButtonOn()
         changeColor()
-    }, 150);
+    }, 180);
 }
 
 // Change color of buttons, color active
@@ -306,8 +308,21 @@ function changeToFavColor(e) {
 }
 
 // Remove favorite color
-function removeFavColor() {
+function removeFavColor(e) {
+    //let lastColor = this.parentNode.style.backgroundColor
+    //console.log(`lastColor${lastColor}`)
     this.parentNode.style.backgroundColor = "white"
+    // console.log("hi")
+    // console.log(`boop${colorExampleSquare.style.backgroundColor}`)
+    // newColor = colorExampleSquare.style.backgroundColor
+    // colorSquares(newColor)
+    //colorExampleSquare.style.backgroundColor = lastColor
+    colorButtonOn()
+    e.stopPropagation()
+    changeColor()
+    //console.log(`lastColor${lastColor}`)
+    //colorSquares(lastColor)
+    
 }
 
 
