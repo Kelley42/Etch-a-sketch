@@ -36,6 +36,10 @@ I got stuck many times, which forced me to become more familiar with the debugge
 * Make it mobile-friendly
 
 
+#### Live demo:
+https://kelley42.github.io/Etch-a-sketch/
+
+
 #### Watch video of Etch-A-Sketch in action:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=olgtiEjygLI" target="_blank">
  <img src="http://img.youtube.com/vi/olgtiEjygLI/mqdefault.jpg" alt="Watch the video" width="400" height="300" border="10" />
