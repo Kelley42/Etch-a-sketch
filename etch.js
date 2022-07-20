@@ -16,6 +16,7 @@ function createGrid(numSquares) {
 function changeGrid() {
     grid.innerHTML = ""
     createGrid(slider.value)
+    //borderOn.property = "checked"
     borderOn.checked = true
     colorButtonOn()
     changeColor()
@@ -152,17 +153,17 @@ function clearButtonOn() {
 }
 
 function changeBorder() {
-    if (!(borderOn.property == "checked")) {  // Unchecked
+    if (borderOn.checked == false) { // Take off borders
         for (let i = 0; i < square.length; i++) {
             square[i].style.border = "0";
         }
-        borderOn.property = "checked"
+        borderOn.property = "unchecked"
     }
-    else {  // Checked
+    else { // Add borders
         for (let i = 0; i < square.length; i++) {
             square[i].style.border = "1px solid black";
         }
-        borderOn.property = "unchecked"
+        borderOn.property = "checked"
     }
 }
 
@@ -268,7 +269,7 @@ let heartButton = document.querySelector("#heart-button");
 heartButton.addEventListener("click", addFavorites)
 
 // Switch for square borders
-let borderOn = document.querySelector(".switchslider")
+let borderOn = document.querySelector("input[type='checkbox']")
 borderOn.addEventListener("click", changeBorder)
 
 // Setting mouseup and mousedown
