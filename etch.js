@@ -1,46 +1,9 @@
 const numSquares = 10; //default num of grid squares per side
 const favoritesNumber = 6; // default number of favorites squares
 
-// function createGrid() {
-//     const grid = document.querySelector("#grid");
-//     for (let i = 0; i < numSquares; i++) {
-//         for (let j = 0; j < numSquares; j++) {
-//             const row = document.createElement("div");
-//             grid.appendChild(row)
-//         }   
-//     }
-// }
-
-/*function createRows(numSquares) {
-    for (let i = 0; i < numSquares; i++) {
-        const row = document.createElement("row");
-        row.classList.add("square");
-        grid.appendChild(row);
-    }
-}
- 
-function createColumns(numSquares) {
-    for (let i = 0; i < numSquares; i++) {
-        const column = document.createElement("column");
-        column.classList.add("square")
-        grid.appendChild(column);
-    }
-}*/
-
 
 function createGrid(numSquares) {
     let size = grid.clientWidth / numSquares;
-    // for (let i = 0; i < numSquares; i++) {
-    //     const row = document.createElement("div");
-    //     row.classList.add("row");
-        
-    //     for (let j = 0; j < numSquares; j++) {
-    //         const column = document.createElement("div");
-    //         column.classList.add("column")
-    //         row.appendChild(column);
-    //     }
-    //     grid.appendChild(row);
-    // }
     for (let i = 0; i < (numSquares * numSquares); i++) {
         const square = document.createElement("div");
         square.classList.add("square")
@@ -50,7 +13,6 @@ function createGrid(numSquares) {
     }
 }
 
-// Changes size of grid
 function changeGrid() {
     grid.innerHTML = ""
     createGrid(slider.value)
@@ -59,9 +21,7 @@ function changeGrid() {
     changeColor()
 }
 
-// Change RGBA value of color
 function changeColor(e) {
-    //if (colorClicked.className == "button-active") { // Color
     colorButtonOn()
     let rvalue = rSlider.value
     let gvalue = gSlider.value
@@ -69,57 +29,29 @@ function changeColor(e) {
     let avalue = aSlider.value
     let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
     colorExampleSquare.style.backgroundColor = newColor;
-    console.log(`bye${colorExampleSquare.style.backgroundColor}`)
     favoriteColor = newColor;
     colorSquares(newColor)
-    
-    // else if (rainbowClicked.className == "button-active") { // Rainbow
-    //     rainbowButtonOn()
-    //     let rvalue = Math.floor(Math.random() * 256)
-    //     let gvalue = Math.floor(Math.random() * 256)
-    //     let bvalue = Math.floor(Math.random() * 256)
-    //     let avalue = 1
-    //     let newColor = `rgba(${rvalue}, ${gvalue}, ${bvalue}, ${avalue})`
-    //     colorExampleSquare.style.backgroundColor = newColor;
-    //     favoriteColor = newColor;
-    //     colorSquares(newColor)
-    // }
 }
 
-// Color squares by clicking or dragging over
 function colorSquares(newColor) {
-    console.log(`newColor${newColor}`)
     squareColor = newColor
     for (let i = 0; i < square.length; i++) {
         square[i].addEventListener("click", colorMe)
         square[i].addEventListener("mouseover", dragColorMe)
     }
-    // if (rainbowClicked.className == "button-active") { // Rainbow
-    //     changeColor()
-    // }
 }
 
 // Color squares
 function colorMe(e) {
-    console.log(`square${squareColor}`)
     e.target.style.backgroundColor = squareColor
     if (randomClicked.className == "button-active") { // Random
         e.target.style.backgroundColor = squareColor
         changeColor
-        //randomSquares()
     }
     else if (rainbowClicked.className == "button-active") { // Rainbow
         e.target.style.backgroundColor = squareColor
         getRandomColor()
     }
-
-    // if (rainbowClicked.className = "button-active") {
-    //     e.target.style.backgroundColor = squareColor
-    //     rainbowSquares()
-    // }
-    // else {
-    //     e.target.style.backgroundColor = squareColor
-    // }
 }
 
 // Will only color while mouseover if mouse already down
@@ -129,24 +61,10 @@ function dragColorMe(e) {
     }
     if (randomClicked.className == "button-active") { // Random
         changeColor
-        //randomSquares()
     }
     else if (rainbowClicked.className == "button-active") { // Rainbow
         getRandomColor()
     }
-
-
-    // if (rainbowClicked.className = "button-active") {
-    //     if (mouseDown) {
-    //         e.target.style.backgroundColor = squareColor
-    //     }
-    //     rainbowSquares()
-    // }
-    // else {
-    //     if (mouseDown) {
-    //         e.target.style.backgroundColor = squareColor
-    //     }
-    // }
 }
 
 // Color squares in random color
@@ -161,7 +79,6 @@ function rainbowSquares() {
     getRandomColor()
 }
 
-// Get random color
 function getRandomColor() {
     let rvalue = Math.floor(Math.random() * 256)
     let gvalue = Math.floor(Math.random() * 256)
@@ -173,29 +90,20 @@ function getRandomColor() {
     colorSquares(newColor)
 }
 
-// Erase squares by changing color to white
 function eraseSquares() {
-    console.log("erase")
     eraserButtonOn()
     squareColor = "white"
     colorSquares(squareColor)
-    // for (let i = 0; i < square.length; i++) {
-    //     squareColor = "white"
-    //     square[i].addEventListener("click", colorMe)
-    //     square[i].addEventListener("mouseover", dragColorMe)
-    // }
 }
 
-// Clear grid by making all squares white
 function clearSquares() {
     clearButtonOn()
     for (let i = 0; i < square.length; i++) {
         squareColor = "white"
         square[i].style.backgroundColor = squareColor
     }
-    // Make button white again
+    // Make button briefly change color
     setTimeout(function() {
-        // Make button blue
         colorButtonOn()
         changeColor()
     }, 180);
@@ -243,7 +151,6 @@ function clearButtonOn() {
     clearClicked.className = "button-active"
 }
 
-// Change squares border
 function changeBorder() {
     if (!(borderOn.property == "checked")) {  // Unchecked
         for (let i = 0; i < square.length; i++) {
@@ -257,14 +164,6 @@ function changeBorder() {
         }
         borderOn.property = "unchecked"
     }
-    // for (let i = 0; i < square.length; i++) {
-    //     if (borderOn.property = "checked") {
-    //         square[i].style.border = "0";
-    //     }
-    //     else {
-    //         square[i].style.border = "1px solid black";
-    //     }
-    // }
 }
 
 // Create favorites boxes to store favorite colors, and X marks boxes to remove favorites
@@ -274,8 +173,6 @@ function createFavorites(favoritesNumber) {
         favSquare.classList.add("favSquare")
         favSquare.setAttribute("id", "favSquareNum"+`${i}`)
         favSquare.style.backgroundColor = "white"
-        //favoriteBoxes.push(favSquare)
-        //favSquare.setAttribute("background-color", "white")
         favorites.appendChild(favSquare)
         for (let j = 0; j < 1; j++) {        
             const favXSquare = document.createElement("div");
@@ -307,37 +204,19 @@ function changeToFavColor(e) {
     colorSquares(newColor)
 }
 
-// Remove favorite color
 function removeFavColor(e) {
-    //let lastColor = this.parentNode.style.backgroundColor
-    //console.log(`lastColor${lastColor}`)
     this.parentNode.style.backgroundColor = "white"
-    // console.log("hi")
-    // console.log(`boop${colorExampleSquare.style.backgroundColor}`)
-    // newColor = colorExampleSquare.style.backgroundColor
-    // colorSquares(newColor)
-    //colorExampleSquare.style.backgroundColor = lastColor
     colorButtonOn()
     e.stopPropagation()
     changeColor()
-    //console.log(`lastColor${lastColor}`)
-    //colorSquares(lastColor)
-    
 }
-
-
 
 
 // Can click on squares immediately to change color
 const grid = document.querySelector("#grid");
-//grid.addEventListener("mousedown", changeColor);
 
 // Create grid
 createGrid(numSquares);
-
-
-//document.documentElement.style.setProperty("--columns-row", numSquares)
-
 
 // Color example square 
 let colorExampleSquare = document.querySelector("#color-box");
@@ -360,7 +239,7 @@ slider.addEventListener("mouseup", changeGrid);
 const square = document.getElementsByClassName("square");
 let squareColor = "white"; //default color
 
-// Only querySelector, not addEventListener, needed to be assigned to const for buttons to change color
+// querySelector and addEventListener added separately, otherwise wouldn't work
 // Button to start coloring
 const colorClicked = document.querySelector("#color");
 colorClicked.addEventListener("click", changeColor);
@@ -381,7 +260,6 @@ colorButtonOn();
 const favorites = document.querySelector("#favorites-box-section");
 createFavorites(favoritesNumber);
 let favoriteColor;
-
 const favSquare = document.getElementsByClassName("favSquare");
 const favXSquare = document.getElementsByClassName("favXSquare")
 
@@ -389,17 +267,7 @@ const favXSquare = document.getElementsByClassName("favXSquare")
 let heartButton = document.querySelector("#heart-button");
 heartButton.addEventListener("click", addFavorites)
 
-// Radio buttons for square borders
-//const radioButtons = document.querySelectorAll("input[name='border-on-off']");
-
-//let radioButtons = document.querySelector("radio-buttons").addEventListener("click", changeBorder);
-// let borderOn = document.querySelector("#border-on")
-// borderOn.addEventListener("click", changeBorder);
-// let borderOff = document.querySelector("#border-off")
-// borderOff.addEventListener("click", changeBorder);
-
-// let borderOn = document.querySelector("checkbox")
-// borderOn.addEventListener("click", changeBorder)
+// Switch for square borders
 let borderOn = document.querySelector(".switchslider")
 borderOn.addEventListener("click", changeBorder)
 
@@ -408,4 +276,5 @@ let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
+// Allows immediate coloring
 changeColor()
