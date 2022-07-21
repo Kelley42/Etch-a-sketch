@@ -25,6 +25,7 @@ I had many challenges doing this project and learned a ton, especially about usi
 * Heart button - learned how to create layered elements with additional layered text
 * Toggle switch - learned how to get the value from a toggle switch, how to manipulate its CSS, and how to link it with the grid size function
 * Removing favorite color - learned that clicking on a child element fired both the child and parent event listeners and discovered that I needed a stopPropagation to stop it bubbling up
+* Adding @media - learned more about manipulating elements to make app easier to view and use on mobile
 
 
 I got stuck many times, which forced me to become more familiar with the debugger in the browser. It was extremely helpful in discovering why some values were mysteriously disappearing and why certain functions were being called that weren't supposed to be. I had fun added lots of features and conquering tons of bugs.
@@ -33,7 +34,7 @@ I got stuck many times, which forced me to become more familiar with the debugge
 #### Possible Future Features:
 
 * Save drawing as image file
-* Make it mobile-friendly
+* Make it mobile-friendly on more devices and add ability to drag color using touch screens
 
 
 #### Live demo:
