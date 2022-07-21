@@ -1,3 +1,69 @@
+@media (max-width:400px) {
+    body {
+        width: 90%;
+    }
+    header h1{
+        font-size: 30px !important;
+        margin-top: -3px;
+    }
+    main {
+        flex-direction: column;
+    }
+    #left-side {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 10px;
+        margin-top: -2px;
+        margin-bottom: -10px;
+    }
+    .small-box {
+        width: 100px;
+        flex-direction: row;
+    }
+    #color-section {
+        width: 50px;
+    }
+    #color-box {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    #favorites-section {
+        margin-top: -10px;
+        margin-bottom: 0px;
+        width: 200px;
+    }
+    .favSquare {
+        max-width: 30px;
+        max-height: 30px;
+    }
+    #grid {
+        max-width: 350px;
+        max-height: 350px;
+    }
+    #slider-box {
+        margin-top: -50px;
+    }
+    #slider-box h1 {
+        opacity: 0;
+    }
+    #slider-box dt {
+        margin-top: -5px;
+    }
+    #radio-buttons {
+        margin-top: -10px;
+    }
+    .button-section {
+        justify-content: space-evenly;
+    }
+    button {
+        max-width: 145px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 html {
     display: flex;
     justify-content: center;
@@ -40,12 +106,26 @@ main {
     align-items: center;
 }
 
+.custom-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #color-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 200px;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
