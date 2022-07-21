@@ -3,7 +3,7 @@
         width: 90%;
     }
     header h1{
-        font-size: 30px !important;
+        font-size: 20px !important;
         margin-top: -3px;
     }
     main {
@@ -28,9 +28,12 @@
         max-height: 50px;
     }
     #favorites-section {
-        margin-top: -10px;
+        margin-top: -5px;
         margin-bottom: 0px;
         width: 200px;
+    }
+    #favorites-section h1 {
+        font-size: 14px;
     }
     .favSquare {
         max-width: 30px;
@@ -56,8 +59,9 @@
         justify-content: space-evenly;
     }
     button {
-        max-width: 145px;
-        height: 30px;
+        max-width: 115px;
+        font-size: 10px;
+        height: 25px;
         display: flex;
         justify-content: center;
         align-items: center;
